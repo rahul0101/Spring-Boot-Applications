@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,4 +56,19 @@ public class EmpController {
 	{
 		return empService.updateEmp(id, emp);
 	}
+	
+	//Find Employee By Last name and age
+	@GetMapping("/lastnameandage/{name}&{age}")
+	public List<Emp> findByLastNameAndAge(@PathVariable("name") String name, @PathVariable("age") String age)
+	{
+		return empService.fbLastNameAndAge(name, Integer.parseInt(age));
+	}
+	
+	@GetMapping("/dept/{name}")
+	public String getdept(@PathVariable String name) {
+		System.out.println(name);
+		String x = empService.getDept(name);
+		return name + " belongs to "+ x + " department";
+	}
+	
 }
