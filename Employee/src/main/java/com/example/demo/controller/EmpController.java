@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.text.ParseException;
 import java.util.List;
 import java.util.Optional;
 
@@ -64,11 +65,25 @@ public class EmpController {
 		return empService.fbLastNameAndAge(name, Integer.parseInt(age));
 	}
 	
+	//Find dept name of emp given his/her first name
 	@GetMapping("/dept/{name}")
 	public String getdept(@PathVariable String name) {
-		System.out.println(name);
-		String x = empService.getDept(name);
-		return name + " belongs to "+ x + " department";
+		
+		return empService.getDept(name);
+	}
+	
+	//Get emp details created before current time
+	@GetMapping("/CreatedTimeBefore")
+	public List<Emp> findByCreatedTimeBefore() throws ParseException
+	{
+		return empService.findByCreatedTimeBefore();
+	}
+	
+	//Get emp details created after current time
+	@GetMapping("/CreatedTimeAfter")
+	public List<Emp> findByCreatedTimeAfter() throws ParseException
+	{
+		return empService.findByCreatedTimeAfter();
 	}
 	
 }
