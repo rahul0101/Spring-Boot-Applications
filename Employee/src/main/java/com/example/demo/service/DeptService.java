@@ -13,7 +13,6 @@ public class DeptService {
 	private DeptRepository deptRepository;
 	
 	public Dept getDept(int id) {
-		System.out.println("lol");
 		return deptRepository.findByEid(id);
 	}
 
