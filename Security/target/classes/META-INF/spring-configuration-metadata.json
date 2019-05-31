@@ -1,0 +1,11 @@
+{
+  "groups": [
+    {
+      "name": "security",
+      "type": "com.example.swagger.config.SecurityConfig",
+      "sourceType": "com.example.swagger.config.SecurityConfig"
+    }
+  ],
+  "properties": [],
+  "hints": []
+}
